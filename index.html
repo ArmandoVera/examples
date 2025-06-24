@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novartis: Infografía de Análisis de Inversión</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-[#f0f9ff] text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center py-8 md:py-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#004e92] text-shadow">Novartis: Una Nueva Era de Innovación</h1>
+            <p class="mt-4 text-lg md:text-xl text-[#0077b6] max-w-3xl mx-auto">Un análisis de una potente farmacéutica de medicinas innovadoras, posicionada para el crecimiento tras su transformación estratégica en 2024.</p>
+        </header>
+
+        <div class="my-6 md:my-8">
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+                {
+                "symbols": [
+                    [
+                    "NYSE:NVS|1D"
+                    ]
+                ],
+                "chartOnly": false,
+                "width": "100%",
+                "height": 400,
+                "locale": "es",
+                "colorTheme": "light",
+                "autosize": true,
+                "showVolume": false,
+                "showMA": false,
+                "hideDateRanges": false,
+                "hideMarketStatus": false,
+                "hideSymbolLogo": false,
+                "scalePosition": "right",
+                "scaleMode": "Normal",
+                "fontFamily": "Inter, sans-serif",
+                "fontSize": "10",
+                "noTimeScale": false,
+                "valuesTracking": "1",
+                "changeMode": "price-and-percent",
+                "chartType": "area",
+                "maLineColor": "#2962FF",
+                "maLineWidth": 1,
+                "maLength": 9,
+                "backgroundColor": "rgba(255, 255, 255, 0.8)",
+                "widgetFontColor": "rgba(51, 65, 85, 1)",
+                "lineWidth": 2,
+                "lineType": 0,
+                "dateRanges": [
+                    "1d|1",
+                    "1m|30",
+                    "3m|60",
+                    "12m|1D",
+                    "60m|1W",
+                    "all|1M"
+                ]
+                }
+                </script>
+            </div>
+        </div>
+
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 flex flex-col md:flex-row justify-around items-center text-center">
+                <div class="p-4">
+                    <p class="text-5xl font-bold text-[#004e92]">12%</p>
+                    <p class="text-lg text-[#0077b6] mt-2">Crecimiento en Ventas Netas (cc, 2024)</p>
+                </div>
+                <div class="w-px bg-slate-200 h-24 hidden md:block"></div>
+                <div class="p-4">
+                    <p class="text-5xl font-bold text-[#004e92]">22%</p>
+                    <p class="text-lg text-[#0077b6] mt-2">Crecimiento en Ingresos Operativos Core (cc, 2024)</p>
+                </div>
+                <div class="w-px bg-slate-200 h-24 hidden md:block"></div>
+                <div class="p-4">
+                    <p class="text-5xl font-bold text-[#004e92]">45%</p>
+                    <p class="text-lg text-[#0077b6] mt-2">Crecimiento en Beneficio Neto (cc, 2024)</p>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-2 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Potencia Financiera</h2>
+                <p class="text-slate-600 mb-4">Novartis muestra un fuerte impulso con un crecimiento interanual significativo en métricas financieras clave, gracias a su estrategia enfocada.</p>
+                <div class="chart-container h-80 md:h-[420px]">
+                    <canvas id="financialTrendsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="lg:col-span-1 bg-white rounded-2xl shadow-md p-6 flex flex-col">
+                 <h2 class="text-2xl font-bold text-[#004e92] mb-1">Flujo de Caja Libre en Auge</h2>
+                 <p class="text-slate-600 mb-6">Como prueba de su eficiencia operativa, el flujo de caja libre proporciona flexibilidad para el retorno a accionistas y las inversiones estratégicas.</p>
+                 <div class="bg-gradient-to-br from-[#90e0ef] to-[#00b4d8] rounded-xl flex-grow flex flex-col justify-center items-center p-6 text-center">
+                    <p class="text-6xl font-extrabold text-white text-shadow">+24%</p>
+                    <p class="text-2xl font-bold text-white/90 text-shadow mt-2">Crecimiento Interanual en 2024</p>
+                    <p class="text-white mt-4">Alcanzando <strong class="font-bold">$16.3 mil millones</strong>, impulsando dividendos, recompras y adquisiciones.</p>
+                 </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Pilares de Crecimiento: El Portafolio 2024</h2>
+                <p class="text-slate-600 mb-4">Un portafolio diverso de medicamentos de gran éxito en áreas terapéuticas clave impulsa los ingresos de la compañía. Entresto lidera, pero enfrenta un desafío a corto plazo.</p>
+                <div class="chart-container h-[500px] md:h-[450px]">
+                    <canvas id="topProductsChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="lg:col-span-1 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Composición del Pipeline de I+D</h2>
+                <p class="text-slate-600 mb-4">El futuro de Novartis se diversifica en 101 proyectos, con un fuerte enfoque en el área de alto valor de Oncología.</p>
+                <div class="chart-container h-80">
+                     <canvas id="pipelineDoughnutChart"></canvas>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-2 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Camino al Mercado: Fases del Pipeline</h2>
+                <p class="text-slate-600 mb-6">El robusto pipeline de Novartis avanza a través de rigurosas fases para llevar tratamientos innovadores a los pacientes.</p>
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-4 text-center">
+                    <div class="flex-1">
+                        <div class="bg-[#90e0ef] text-[#004e92] rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">I</div>
+                        <h3 class="font-semibold">Fase I</h3>
+                        <p class="text-sm text-slate-500">Primeros ensayos de seguridad</p>
+                    </div>
+                    <div class="text-2xl text-[#00b4d8] font-mono hidden md:block">&rarr;</div>
+                    <div class="flex-1">
+                        <div class="bg-[#00b4d8] text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">II</div>
+                        <h3 class="font-semibold">Fase II</h3>
+                        <p class="text-sm text-slate-500">Eficacia y dosificación</p>
+                    </div>
+                     <div class="text-2xl text-[#0077b6] font-mono hidden md:block">&rarr;</div>
+                    <div class="flex-1">
+                        <div class="bg-[#0077b6] text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-2 text-2xl font-bold">III</div>
+                        <h3 class="font-semibold">Fase III</h3>
+                        <p class="text-sm text-slate-500">Ensayos a gran escala</p>
+                    </div>
+                     <div class="text-2xl text-[#004e92] font-mono hidden md:block">&rarr;</div>
+                    <div class="flex-1">
+                        <div class="bg-[#004e92] text-white rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-2 text-xl font-bold">&#10003;</div>
+                        <h3 class="font-semibold">Registro</h3>
+                        <p class="text-sm text-slate-500">Buscando aprobación</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-1 bg-red-100 border-l-4 border-red-500 rounded-r-2xl shadow-md p-6">
+                 <h2 class="text-2xl font-bold text-red-800 mb-1">El Desafío Inminente</h2>
+                 <p class="text-red-700 mb-4">El medicamento estrella Entresto se enfrenta a una importante pérdida de patente, creando un obstáculo considerable para los ingresos.</p>
+                 <div class="text-center bg-white rounded-xl p-4">
+                     <p class="text-5xl font-bold text-red-600">$7.8B</p>
+                     <p class="text-lg text-slate-700 mt-2">Ventas de Entresto en 2024</p>
+                     <p class="text-slate-600 mt-2 font-semibold">Se asume la entrada de genéricos en EE. UU. a mediados de 2025.</p>
+                 </div>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-2 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Motores de Crecimiento Futuro</h2>
+                <p class="text-slate-600 mb-4">Activos clave en etapas finales están listos para compensar los vencimientos de patentes e impulsar la próxima ola de crecimiento.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                        <h3 class="font-bold text-[#0077b6]">Pluvicto</h3>
+                        <p class="text-sm text-slate-600">Expansión de su uso en cáncer de próstata, con datos clave esperados en 2025.</p>
+                    </div>
+                    <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                        <h3 class="font-bold text-[#0077b6]">Atrasentan</h3>
+                        <p class="text-sm text-slate-600">Aprobado en EE. UU. (Abr 2025) para Nefropatía por IgA, una alta necesidad no cubierta.</p>
+                    </div>
+                    <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                        <h3 class="font-bold text-[#0077b6]">Remibrutinib</h3>
+                        <p class="text-sm text-slate-600">Potencial mejor fármaco para urticaria, decisión de la FDA esperada en H2 2025.</p>
+                    </div>
+                    <div class="bg-sky-50 rounded-lg p-4 border border-sky-200">
+                        <h3 class="font-bold text-[#0077b6]">Ianalumab</h3>
+                        <p class="text-sm text-slate-600">Múltiples resultados en 2025+ para enfermedades autoinmunes como Lupus y Sjögren.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-2xl shadow-md p-6">
+                 <h2 class="text-2xl font-bold text-[#004e92] mb-1">Compromiso con el Valor para el Accionista</h2>
+                 <p class="text-slate-600 mb-4">Novartis devuelve capital consistentemente a los accionistas a través de un dividendo creciente y un sustancial programa de recompra de acciones.</p>
+                 <div class="flex flex-col md:flex-row justify-around items-center text-center space-y-6 md:space-y-0">
+                     <div class="p-4">
+                        <p class="text-5xl font-bold text-[#00b4d8]">+6%</p>
+                        <p class="text-lg text-[#0077b6] mt-2">Aumento de Dividendo Propuesto para 2024</p>
+                        <p class="text-sm text-slate-500">(Pago total ~ $7.6 mil millones)</p>
+                     </div>
+                     <div class="w-full md:w-px h-px md:h-24 bg-slate-200"></div>
+                     <div class="p-4">
+                        <p class="text-5xl font-bold text-[#00b4d8]">$15B</p>
+                        <p class="text-lg text-[#0077b6] mt-2">Programa de Recompra de Acciones</p>
+                        <p class="text-sm text-slate-500">(~$2.7 mil millones restantes a Q1 2025)</p>
+                     </div>
+                 </div>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-white rounded-2xl shadow-md p-6">
+                <h2 class="text-2xl font-bold text-[#004e92] mb-1">Navegando el Panorama de Riesgos</h2>
+                <p class="text-slate-600 mb-6">Aunque está posicionada para crecer, Novartis enfrenta riesgos multifacéticos comunes en la industria farmacéutica.</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left">
+                    <div class="border-t-4 border-[#004e92] bg-slate-50 rounded-lg p-4">
+                        <h3 class="font-bold text-[#004e92]">Riesgos Comerciales y de PI</h3>
+                        <p class="text-sm mt-2 text-slate-600">La pérdida de ingresos por genéricos (ej. Entresto), el éxito de nuevos lanzamientos y el mantenimiento de la protección de patentes son desafíos críticos.</p>
+                    </div>
+                    <div class="border-t-4 border-[#0077b6] bg-slate-50 rounded-lg p-4">
+                        <h3 class="font-bold text-[#0077b6]">Riesgos de I+D y Tecnología</h3>
+                        <p class="text-sm mt-2 text-slate-600">Incertidumbre en los resultados de ensayos clínicos y el alto costo de la innovación. No aprovechar la IA podría ser una desventaja competitiva.</p>
+                    </div>
+                    <div class="border-t-4 border-[#00b4d8] bg-slate-50 rounded-lg p-4">
+                        <h3 class="font-bold text-[#00b4d8]">Riesgos Macro y Regulatorios</h3>
+                        <p class="text-sm mt-2 text-slate-600">Presiones de precios globales (ej. Ley IRA en EE. UU.), factores geopolíticos y costosos procedimientos legales crean un entorno externo desafiante.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 lg:col-span-3 bg-gradient-to-r from-[#004e92] to-[#0077b6] rounded-2xl shadow-lg p-8 text-white">
+                <h2 class="text-3xl font-bold mb-3">Tesis de Inversión: Un Caso Sólido</h2>
+                <p class="text-lg text-sky-100">Novartis presenta una inversión atractiva a largo plazo. Su estrategia enfocada, sólido desempeño financiero y un profundo pipeline parecen más que capaces de superar la pérdida de patente de Entresto a corto plazo. La valoración actual ofrece un punto de entrada sólido para inversores con visión de crecimiento futuro impulsado por la innovación en terapias de alto valor.</p>
+            </div>
+        </main>
+        
+        <footer class="text-center py-6 mt-8">
+            <p class="text-sm text-slate-500">Esta infografía es solo para fines informativos y no constituye asesoramiento de inversión. Los datos se basan en informes públicos de Novartis a Q1 2025.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            const wrapLabel = (label) => {
+                const maxLen = 16;
+                if (label.length <= maxLen) return label;
+                
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > maxLen) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const brilliantBlues = {
+                dark: '#004e92',
+                medium: '#0077b6',
+                bright: '#00b4d8',
+                light: '#90e0ef',
+                veryLight: '#caf0f8'
+            };
+
+            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.color = '#334155';
+            
+            const financialTrendsCtx = document.getElementById('financialTrendsChart')?.getContext('2d');
+            if(financialTrendsCtx) {
+                new Chart(financialTrendsCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2023', '2024'],
+                        datasets: [{
+                            label: 'Ventas Netas (Millones USD)',
+                            data: [45440, 50317],
+                            borderColor: brilliantBlues.dark,
+                            backgroundColor: brilliantBlues.dark + '33',
+                            fill: true,
+                            tension: 0.1,
+                            borderWidth: 3
+                        }, {
+                            label: 'Ingresos Operativos Core (Millones USD)',
+                            data: [16372, 19494],
+                            borderColor: brilliantBlues.bright,
+                            backgroundColor: brilliantBlues.bright + '33',
+                            fill: true,
+                            tension: 0.1,
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: {
+                                callbacks: { title: tooltipTitleCallback }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                ticks: {
+                                    callback: function(value) {
+                                        return '$' + (value / 1000) + 'B';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const topProductsCtx = document.getElementById('topProductsChart')?.getContext('2d');
+            if(topProductsCtx) {
+                const originalLabels = ['Entresto', 'Cosentyx', 'Kesimpta', 'Kisqali', 'Promacta/Revolade', 'Tafinlar + Mekinist', 'Jakavi', 'Xolair', 'Ilaris', 'Pluvicto'];
+                new Chart(topProductsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: originalLabels.map(wrapLabel),
+                        datasets: [{
+                            label: 'Ventas Netas 2024 (Miles de millones USD)',
+                            data: [7.8, 6.1, 3.2, 3.0, 2.2, 2.1, 1.9, 1.6, 1.5, 1.4],
+                            backgroundColor: [
+                                brilliantBlues.dark, 
+                                brilliantBlues.medium,
+                                brilliantBlues.bright,
+                                brilliantBlues.light,
+                                brilliantBlues.dark,
+                                brilliantBlues.medium,
+                                brilliantBlues.bright,
+                                brilliantBlues.light,
+                                brilliantBlues.dark,
+                                brilliantBlues.medium,
+                            ],
+                            borderColor: brilliantBlues.dark,
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                           legend: { display: false },
+                           tooltip: {
+                                callbacks: { title: tooltipTitleCallback }
+                            }
+                        },
+                        scales: {
+                           x: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Miles de millones USD'
+                                }
+                           }
+                        }
+                    }
+                });
+            }
+
+            const pipelineDoughnutCtx = document.getElementById('pipelineDoughnutChart')?.getContext('2d');
+            if(pipelineDoughnutCtx) {
+                new Chart(pipelineDoughnutCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Oncología', 'Inmunología', 'Neurociencia', 'Cardiovascular, Renal, Metabólica', 'Otros'],
+                        datasets: [{
+                            label: 'Nº de Proyectos',
+                            data: [33, 23, 15, 15, 15],
+                            backgroundColor: [
+                                brilliantBlues.dark,
+                                brilliantBlues.medium,
+                                brilliantBlues.bright,
+                                brilliantBlues.light,
+                                '#e2e8f0'
+                            ],
+                            borderColor: '#fff',
+                            borderWidth: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 15
+                                }
+                            },
+                           tooltip: {
+                                callbacks: { title: tooltipTitleCallback }
+                            }
+                        },
+                        cutout: '60%'
+                    }
+                });
+            }
+
+        });
+    </script>
+</body>
+</html>
